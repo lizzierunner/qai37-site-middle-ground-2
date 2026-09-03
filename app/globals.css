@@ -204,6 +204,13 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px}
 .p-home .roster-role{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 @media(max-width:600px){.p-home .roster{grid-template-columns:1fr}.p-home .roster-item:nth-child(odd){padding-right:0;border-right:none}.p-home .roster-item:nth-child(even){padding-left:0}}
 
+/* ======================== HOMEPAGE CAREERS ======================== */
+.p-home .careers-section{border-top:1px solid var(--line);padding:80px 0}
+.p-home .careers-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.72fr);gap:72px;align-items:end}
+.p-home .careers-inner h2{max-width:15ch;margin-bottom:0}
+.p-home .careers-action p{color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:26px;max-width:42ch}
+@media(max-width:700px){.p-home .careers-section{padding:52px 0}.p-home .careers-inner{grid-template-columns:1fr;gap:30px}.p-home .careers-inner h2{max-width:20ch}}
+
 /* ======================== TEAM PAGE BIOS ======================== */
 .p-team2 .bio-intro{padding:96px 0 64px;border-bottom:1px solid var(--line)}
 .p-team2 .bio-intro h1{max-width:12ch}

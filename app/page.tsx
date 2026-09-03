@@ -1,3 +1,4 @@
+import Link from "next/link";
 import HeroViz from "@/components/HeroViz";
 import ThesisExplorer from "@/components/ThesisExplorer";
 import PositioningExplorer from "@/components/PositioningExplorer";
@@ -64,6 +65,18 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="careers-section" id="careers">
+        <div className="wrap careers-inner">
+          <div>
+            <span className="eyebrow reveal">Careers</span>
+            <h2 className="reveal s1">Build the route beneath the interface.</h2>
+          </div>
+          <div className="careers-action reveal s2">
+            <p>We&apos;re assembling a small team for a problem that sits between AI infrastructure, systems software, and quantum computing.</p>
+            <Link className="btn" href="mailto:careers@qAI37.com">Contact us</Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
