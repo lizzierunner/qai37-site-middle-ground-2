@@ -49,7 +49,6 @@ export default function SiteHeader() {
             <span className="cmd-trigger-text">Search</span>
             <kbd className="cmd-trigger-kbd">⌘K</kbd>
           </button>
-          <Link className="btn" href="/#join">Get updates</Link>
         </nav>
       </div>
     </header>
