@@ -240,7 +240,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px}
 .p-team2 .advisory-section{padding:72px 0 100px;border-top:1px solid var(--line)}
 .p-team2 .extended-list{margin-top:28px;margin-bottom:80px;border-top:1px solid var(--line)}
 .p-team2 .extended-list .bio-row{padding:34px 0;grid-template-columns:minmax(250px,.75fr) minmax(0,1.45fr)}
-.p-team2 .extended-list .bio-photo{display:none}
 .p-team2 .extended-list .bio-body{font-size:16px;line-height:1.7}
 .p-team2 .advisory-list{display:grid;grid-template-columns:repeat(2,1fr);margin-top:32px;border-top:1px solid var(--line)}
 .p-team2 .advisory-item{padding:20px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:4px}

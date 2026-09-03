@@ -82,27 +82,38 @@ type ExtendedMember = {
   name: string;
   role: string;
   bio: string;
+  img?: string;
 };
 
 const EXTENDED_TEAM: ExtendedMember[] = [
   {
     name: "Gregor Barry",
     role: "Advisor",
+    img: `${BASE_PATH}/images/team/Team%20Photos/Gregor%20Barry.jpg`,
     bio: "Managing Director, Accenture, Toronto — twelve years in enterprise relationships with Fortune 500 clients.",
+  },
+  {
+    name: "Richard Wood",
+    role: "Advisor",
+    img: `${BASE_PATH}/images/team/Team%20Photos/Richard%20Wood.jpeg`,
+    bio: "Advisor to qAI37.",
   },
   {
     name: "Vicki Mitchell",
     role: "Advisor",
+    img: `${BASE_PATH}/images/team/Team%20Photos/vicki-mitchell.jpeg`,
     bio: "Former VP of Engineering at Google, ARM, Altera, and Intel, where she led large-scale silicon, systems, and infrastructure engineering programs across global organizations. Featured in the inaugural Top 100 List of senior women leaders in engineering, Vicki has spent her career at the intersection of hardware and software, including instruction sets, programmable hardware, and full-stack infrastructure engineering.",
   },
   {
     name: "Rupesh Srivastava",
     role: "Quantum Advisor",
+    img: `${BASE_PATH}/images/team/Team%20Photos/Rupesh%20Srivastava.jpg`,
     bio: "PhD in Physics, Royal Holloway, University of London. Five years developing the UK quantum-computing ecosystem at Oxford's Department of Physics (the NQIT and QCS national quantum technology hubs, 2016–2021). Chief Quantum Officer, Entangled Positions.",
   },
   {
     name: "John Williams",
     role: "Strategic Advisor",
+    img: `${BASE_PATH}/images/team/Team%20Photos/john-williams.jpeg`,
     bio: "Strategic advisor to qAI37.",
   },
 ];
@@ -154,9 +165,21 @@ export default function Team() {
           <div className="extended-list">
             {EXTENDED_TEAM.map((m) => (
               <div key={m.name} className="bio-row reveal">
-                <div className="bio-meta">
-                  <p className="bio-name">{m.name}</p>
-                  <p className="bio-role">{m.role}</p>
+                <div className="bio-left">
+                  {m.img && (
+                    <TeamAvatar
+                      img={m.img}
+                      name={m.name}
+                      initials={m.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    />
+                  )}
+                  <div className="bio-meta">
+                    <p className="bio-name">{m.name}</p>
+                    <p className="bio-role">{m.role}</p>
+                  </div>
                 </div>
                 <p className="bio-body">{m.bio}</p>
               </div>
