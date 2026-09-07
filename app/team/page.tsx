@@ -44,13 +44,12 @@ const TEAM: Member[] = [
     signal: "Intel · Altera · TI · Processor architecture",
   },
   {
-    name: "Laverne Masaki",
-    role: "Chief People Officer",
-    initials: "LM",
-    img: `${BASE_PATH}/images/team/laverne-masaki.jpg`,
-    bio: "Former executive recruiter at Microsoft and Google, specializing in building senior technical teams for complex, high-stakes programs. Laverne's network and judgment are a core operational asset at a company whose execution depends entirely on assembling the right people at the right moment.",
-    signal: "Microsoft · Google · Technical recruiting",
-    li: "https://www.linkedin.com/in/laverne-masaki/",
+    name: "Rupesh Srivastava",
+    role: "Quantum Advisor",
+    initials: "RS",
+    img: `${BASE_PATH}/images/team/Team%20Photos/Rupesh%20Srivastava.jpg`,
+    bio: "PhD in Physics, Royal Holloway, University of London. Five years developing the UK quantum-computing ecosystem at Oxford's Department of Physics (the NQIT and QCS national quantum technology hubs, 2016-2021). Chief Quantum Officer, Entangled Positions.",
+    signal: "Oxford · Quantum ecosystem · PhD",
   },
   {
     name: "Vincent E. Elfving",
@@ -59,6 +58,15 @@ const TEAM: Member[] = [
     img: `${BASE_PATH}/images/team/vincent-elfving.jpg`,
     bio: "Former Head of Algorithms at Pasqal, where he led a team of over 40 researchers developing AI workflows for neutral atom hardware. Google Quantum AI alumnus and co-founder of Qu & Co (merged with Pasqal). PhD in Quantum Information Processing.",
     signal: "Pasqal · Google Quantum AI · PhD",
+  },
+  {
+    name: "Laverne Masaki",
+    role: "Chief People Officer",
+    initials: "LM",
+    img: `${BASE_PATH}/images/team/laverne-masaki.jpg`,
+    bio: "Former executive recruiter at Microsoft and Google, specializing in building senior technical teams for complex, high-stakes programs. Laverne's network and judgment are a core operational asset at a company whose execution depends entirely on assembling the right people at the right moment.",
+    signal: "Microsoft · Google · Technical recruiting",
+    li: "https://www.linkedin.com/in/laverne-masaki/",
   },
   {
     name: "Rick Jahnke",
@@ -96,7 +104,7 @@ const EXTENDED_TEAM: ExtendedMember[] = [
     name: "Richard Wood",
     role: "Advisor",
     img: `${BASE_PATH}/images/team/Team%20Photos/Richard%20Wood.jpeg`,
-    bio: "Advisor to qAI37.",
+    bio: "Richard has more than 30 years of investment banking experience spanning both boutique and middle market firms. He co-founded First Hill Partners in 2010.",
   },
   {
     name: "Vicki Mitchell",
@@ -105,16 +113,10 @@ const EXTENDED_TEAM: ExtendedMember[] = [
     bio: "Former VP of Engineering at Google, ARM, Altera, and Intel, where she led large-scale silicon, systems, and infrastructure engineering programs across global organizations. Featured in the inaugural Top 100 List of senior women leaders in engineering, Vicki has spent her career at the intersection of hardware and software, including instruction sets, programmable hardware, and full-stack infrastructure engineering.",
   },
   {
-    name: "Rupesh Srivastava",
-    role: "Quantum Advisor",
-    img: `${BASE_PATH}/images/team/Team%20Photos/Rupesh%20Srivastava.jpg`,
-    bio: "PhD in Physics, Royal Holloway, University of London. Five years developing the UK quantum-computing ecosystem at Oxford's Department of Physics (the NQIT and QCS national quantum technology hubs, 2016–2021). Chief Quantum Officer, Entangled Positions.",
-  },
-  {
     name: "John Williams",
     role: "Strategic Advisor",
     img: `${BASE_PATH}/images/team/Team%20Photos/john-williams.jpeg`,
-    bio: "Strategic advisor to qAI37.",
+    bio: "Technical executive in product management and marketing in cloud computing, compute systems, semiconductors, and software.",
   },
 ];
 
@@ -126,63 +128,82 @@ function LinkedInIcon() {
   );
 }
 
+function getInitials(name: string) {
+  return name
+    .split(" ")
+    .map((part) => part[0])
+    .join("");
+}
+
+function TeamCard({ member, index }: { member: Member | ExtendedMember; index: number }) {
+  const initials = "initials" in member ? member.initials : getInitials(member.name);
+  const signal = "signal" in member ? member.signal : undefined;
+  const linkedIn = "li" in member ? member.li : undefined;
+
+  return (
+    <article className="team-card reveal" style={{ "--i": index } as React.CSSProperties}>
+      <TeamAvatar img={member.img} name={member.name} initials={initials} />
+      <div className="team-card-copy">
+        <p className="team-card-name">{member.name}</p>
+        <p className="team-card-role">{member.role}</p>
+        {signal && <p className="team-card-signal">{signal}</p>}
+        <p className="team-card-bio">{member.bio}</p>
+        {linkedIn && (
+          <a href={linkedIn} target="_blank" rel="noopener noreferrer" className="bio-li">
+            <LinkedInIcon /> LinkedIn
+          </a>
+        )}
+      </div>
+    </article>
+  );
+}
+
 export default function Team() {
   return (
     <div className="p-team2">
       <section className="bio-intro">
-        <div className="wrap">
-          <span className="eyebrow reveal">The team</span>
-          <h1 className="reveal s1">The people building it.</h1>
-        </div>
-      </section>
-
-      <section>
-        <div className="wrap bio-list">
-          {TEAM.map((m) => (
-            <div key={m.name} className="bio-row reveal">
-              <div className="bio-left">
-                <TeamAvatar img={m.img} name={m.name} initials={m.initials} />
-                <div className="bio-meta">
-                  <p className="bio-name">{m.name}</p>
-                  <p className="bio-role">{m.role}</p>
-                  <p className="bio-signal">{m.signal}</p>
-                  {m.li && (
-                    <a href={m.li} target="_blank" rel="noopener noreferrer" className="bio-li">
-                      <LinkedInIcon /> LinkedIn
-                    </a>
-                  )}
-                </div>
-              </div>
-              <p className="bio-body">{m.bio}</p>
+        <div className="wrap team-hero-grid">
+          <div>
+            <span className="eyebrow reveal">The team</span>
+            <h1 className="reveal s1">The people building it.</h1>
+          </div>
+          <div className="team-hero-side reveal s2">
+            <p>
+              A focused group spanning infrastructure software, processor architecture,
+              quantum computing, product strategy, and company building.
+            </p>
+            <div className="team-sort" aria-label="Team sections">
+              <span>Sort by</span>
+              <a href="#core-team">Core team</a>
+              <a href="#extended-team">Extended team</a>
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
-      <section className="advisory-section">
+      <section className="team-grid-section" id="core-team">
         <div className="wrap">
-          <span className="eyebrow reveal">Extended team</span>
-          <div className="extended-list">
-            {EXTENDED_TEAM.map((m) => (
-              <div key={m.name} className="bio-row reveal">
-                <div className="bio-left">
-                  {m.img && (
-                    <TeamAvatar
-                      img={m.img}
-                      name={m.name}
-                      initials={m.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    />
-                  )}
-                  <div className="bio-meta">
-                    <p className="bio-name">{m.name}</p>
-                    <p className="bio-role">{m.role}</p>
-                  </div>
-                </div>
-                <p className="bio-body">{m.bio}</p>
-              </div>
+          <div className="team-section-head reveal">
+            <span className="team-section-label">Core team</span>
+            <p>{TEAM.length} people</p>
+          </div>
+          <div className="team-card-grid">
+            {TEAM.map((member, index) => (
+              <TeamCard key={member.name} member={member} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="team-grid-section advisory-section" id="extended-team">
+        <div className="wrap">
+          <div className="team-section-head reveal">
+            <span className="team-section-label">Extended team</span>
+            <p>{EXTENDED_TEAM.length} advisors</p>
+          </div>
+          <div className="team-card-grid extended-grid">
+            {EXTENDED_TEAM.map((member, index) => (
+              <TeamCard key={member.name} member={member} index={index} />
             ))}
           </div>
         </div>

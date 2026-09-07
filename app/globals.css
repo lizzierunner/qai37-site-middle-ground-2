@@ -212,44 +212,47 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px}
 @media(max-width:700px){.p-home .careers-section{padding:52px 0}.p-home .careers-inner{grid-template-columns:1fr;gap:30px}.p-home .careers-inner h2{max-width:20ch}}
 
 /* ======================== TEAM PAGE BIOS ======================== */
-.p-team2 .bio-intro{padding:96px 0 64px;border-bottom:1px solid var(--line)}
-.p-team2 .bio-intro h1{max-width:12ch}
-.p-team2 .bio-list{padding-bottom:104px}
-.p-team2 .bio-row{display:grid;grid-template-columns:minmax(250px,.75fr) minmax(0,1.45fr);gap:clamp(40px,7vw,96px);padding:52px 0;border-bottom:1px solid var(--line);position:relative;transition:background .35s ease}
-.p-team2 .bio-row::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--cyan);transform:scaleY(0);transform-origin:center;transition:transform .35s cubic-bezier(.22,1,.36,1)}
-.p-team2 .bio-row:hover::before{transform:scaleY(1)}
-.p-team2 .bio-left{display:flex;flex-direction:column;gap:18px;align-self:start}
-.p-team2 .bio-photo{width:164px;height:190px;border-radius:2px;overflow:hidden;background:var(--surface);border:1px solid var(--line);position:relative;flex-shrink:0;box-shadow:0 28px 50px -34px rgba(0,0,0,.9);transition:border-color .3s ease,box-shadow .3s ease}
+.p-team2 .bio-intro{padding:104px 0 70px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(8,184,230,.055),transparent 58%)}
+.p-team2 .team-hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,.62fr);gap:clamp(42px,7vw,92px);align-items:flex-end}
+.p-team2 .bio-intro h1{max-width:11ch;margin-bottom:0}
+.p-team2 .team-hero-side p{font-size:18px;color:var(--muted);line-height:1.75;max-width:36ch;margin-bottom:28px}
+.p-team2 .team-sort{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:22px;border-top:1px solid var(--line)}
+.p-team2 .team-sort span{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-2);margin-right:8px}
+.p-team2 .team-sort a{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line-strong);padding:8px 11px;transition:background .2s,color .2s,border-color .2s}
+.p-team2 .team-sort a:hover{color:var(--ink);background:var(--cyan);border-color:var(--cyan)}
+.p-team2 .team-grid-section{padding:78px 0 96px;border-bottom:1px solid var(--line)}
+.p-team2 .team-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:34px;border-bottom:1px solid var(--line);padding-bottom:18px}
+.p-team2 .team-section-label{font-family:var(--font-display);font-size:clamp(34px,4.5vw,58px);font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--text)}
+.p-team2 .team-section-head p{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2)}
+.p-team2 .team-card-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line)}
+.p-team2 .team-card{position:relative;min-width:0;background:#0c0d0e;padding:18px 18px 22px;overflow:hidden;transition:background .3s ease,transform .3s cubic-bezier(.22,1,.36,1)}
+.p-team2 .team-card::after{content:"";position:absolute;left:18px;right:18px;top:18px;height:2px;background:var(--cyan);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.p-team2 .team-card:hover{background:#101315;transform:translateY(-2px)}
+.p-team2 .team-card:hover::after{transform:scaleX(1)}
+.p-team2 .bio-photo{width:100%;aspect-ratio:4/5;border-radius:1px;overflow:hidden;background:var(--surface);border:1px solid var(--line);position:relative;box-shadow:0 28px 50px -34px rgba(0,0,0,.9);transition:border-color .3s ease,box-shadow .3s ease}
 .p-team2 .bio-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;filter:grayscale(1) contrast(1.12) brightness(.9);transition:filter .45s ease,transform .55s cubic-bezier(.22,1,.36,1)}
-.p-team2 .bio-photo::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(145deg,rgba(255,255,255,.09),transparent 42%,rgba(0,0,0,.22))}
-.p-team2 .bio-row:hover .bio-photo{border-color:rgba(8,184,230,.6);box-shadow:0 28px 58px -32px rgba(8,184,230,.24)}
-.p-team2 .bio-row:hover .bio-photo img{filter:grayscale(.45) contrast(1.08) brightness(.98);transform:scale(1.035)}
+.p-team2 .bio-photo::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(145deg,rgba(255,255,255,.1),transparent 40%,rgba(0,0,0,.28))}
+.p-team2 .team-card:hover .bio-photo{border-color:rgba(8,184,230,.55);box-shadow:0 28px 58px -32px rgba(8,184,230,.24)}
+.p-team2 .team-card:hover .bio-photo img{filter:grayscale(.45) contrast(1.08) brightness(.98);transform:scale(1.035)}
 .p-team2 .bio-photo img[src*="ted-stockwell"]{object-fit:contain;object-position:center;background:var(--ink)}
 .p-team2 .bio-photo img[src*="michelle-holtmann"]{object-position:center 15%;transform:scale(1.035)}
 .p-team2 .bio-photo img[src*="Rick.jpg"]{object-position:center 34%;transform:scale(1.1)}
 .p-team2 .bio-photo.noimg img{display:none}
-.p-team2 .bio-photo.noimg::after{content:attr(data-initials);position:absolute;inset:0;display:grid;place-items:center;font-family:var(--font-display);font-weight:600;font-size:1.4em;color:var(--muted)}
-.p-team2 .bio-meta{padding-top:2px;max-width:28ch}
-.p-team2 .bio-name{font-family:var(--font-display);font-size:clamp(23px,2.1vw,29px);font-weight:600;letter-spacing:-.02em;color:var(--text);margin-bottom:8px;line-height:1.12}
-.p-team2 .bio-role{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
-.p-team2 .bio-signal{font-family:var(--font-mono);font-size:10px;line-height:1.6;color:var(--muted-2);margin-top:12px}
+.p-team2 .bio-photo.noimg::after{content:attr(data-initials);position:absolute;inset:0;display:grid;place-items:center;font-family:var(--font-display);font-weight:600;font-size:clamp(38px,5vw,62px);color:var(--muted)}
+.p-team2 .team-card-copy{padding-top:18px}
+.p-team2 .team-card-name{font-family:var(--font-display);font-size:clamp(22px,2vw,29px);font-weight:600;letter-spacing:-.02em;color:var(--text);line-height:1.08;margin-bottom:8px}
+.p-team2 .team-card-role{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);line-height:1.45;min-height:28px}
+.p-team2 .team-card-signal{font-family:var(--font-mono);font-size:10px;line-height:1.55;color:var(--muted-2);margin-top:12px;min-height:32px}
+.p-team2 .team-card-bio{font-size:14px;color:var(--muted);line-height:1.7;margin-top:16px}
 .p-team2 .bio-li{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-family:var(--font-mono);font-size:11px;color:var(--muted);transition:color .2s}
 .p-team2 .bio-li:hover{color:var(--cyan)}
 .p-team2 .bio-li svg{width:13px;height:13px;fill:currentColor}
-.p-team2 .bio-body{font-size:17px;color:var(--muted);line-height:1.8;align-self:center;max-width:62ch}
-.p-team2 .advisory-section{padding:72px 0 100px;border-top:1px solid var(--line)}
-.p-team2 .extended-list{margin-top:28px;margin-bottom:80px;border-top:1px solid var(--line)}
-.p-team2 .extended-list .bio-row{padding:34px 0;grid-template-columns:minmax(250px,.75fr) minmax(0,1.45fr)}
-.p-team2 .extended-list .bio-body{font-size:16px;line-height:1.7}
-.p-team2 .advisory-list{display:grid;grid-template-columns:repeat(2,1fr);margin-top:32px;border-top:1px solid var(--line)}
-.p-team2 .advisory-item{padding:20px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
-.p-team2 .advisory-item:nth-child(odd){padding-right:40px;border-right:1px solid var(--line)}
-.p-team2 .advisory-item:nth-child(even){padding-left:40px}
-.p-team2 .advisory-name{font-family:var(--font-display);font-size:18px;font-weight:500;color:var(--text)}
-.p-team2 .advisory-role{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-@media(prefers-reduced-motion:reduce){.p-team2 .bio-row,.p-team2 .bio-row::before,.p-team2 .bio-photo,.p-team2 .bio-photo img{transition:none}}
-@media(max-width:760px){.p-team2 .bio-intro{padding:72px 0 46px}.p-team2 .bio-list{padding-bottom:64px}.p-team2 .bio-row,.p-team2 .extended-list .bio-row{grid-template-columns:1fr;gap:24px;padding:36px 0}.p-team2 .bio-left{flex-direction:row;align-items:flex-start;gap:20px}.p-team2 .bio-photo{width:128px;height:150px}.p-team2 .bio-body{max-width:64ch}.p-team2 .advisory-list{grid-template-columns:1fr}.p-team2 .advisory-item:nth-child(odd){padding-right:0;border-right:none}.p-team2 .advisory-item:nth-child(even){padding-left:0}}
-@media(max-width:480px){.p-team2 .bio-left{flex-direction:column}.p-team2 .bio-photo{width:124px;height:146px}.p-team2 .bio-row,.p-team2 .extended-list .bio-row{padding:30px 0}.p-team2 .bio-body{font-size:16px}.p-team2 .extended-list{margin-bottom:52px}}
+.p-team2 .advisory-section{border-bottom:0;padding-bottom:112px}
+.p-team2 .extended-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(prefers-reduced-motion:reduce){.p-team2 .team-card,.p-team2 .team-card::after,.p-team2 .bio-photo,.p-team2 .bio-photo img{transition:none}}
+@media(max-width:1020px){.p-team2 .team-card-grid,.p-team2 .extended-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.p-team2 .bio-intro{padding:72px 0 48px}.p-team2 .team-hero-grid{grid-template-columns:1fr;gap:30px}.p-team2 .team-grid-section{padding:56px 0 70px}.p-team2 .team-section-head{align-items:flex-start;flex-direction:column;gap:10px}.p-team2 .team-card-grid,.p-team2 .extended-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.p-team2 .team-card{padding:14px 14px 18px}.p-team2 .team-card::after{left:14px;right:14px;top:14px}.p-team2 .team-card-bio{font-size:13px}}
+@media(max-width:540px){.p-team2 .team-sort{align-items:flex-start;flex-direction:column}.p-team2 .team-sort span{margin-right:0}.p-team2 .team-sort a{width:100%;text-align:center}.p-team2 .team-card-grid,.p-team2 .extended-grid{grid-template-columns:1fr}.p-team2 .team-card{padding:16px}.p-team2 .team-card-role,.p-team2 .team-card-signal{min-height:0}.p-team2 .bio-photo{max-height:420px}}
 
 /* ======================== NEWS KICKER + DESC ======================== */
 .p-news .news-kicker{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px}
